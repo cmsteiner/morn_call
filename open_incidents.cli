@@ -1,0 +1,15 @@
+#!ctf
+
+tmpfilter init tracker
+tmpfilter set statusClass Open
+
+output $1
+
+go tracker1459
+items foreach 
+do
+    ctf set ARTF `print id`
+    ctf set NAME `print title`
+    ctf set COUNT `expr $COUNT + 1`
+    echo $ARTF : $NAME
+done
